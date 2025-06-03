@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { OctagonAlert } from "lucide-react";
 import React, { useState } from "react";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 import {
 	Form,
 	FormControl,
@@ -132,18 +133,28 @@ const SignInView = () => {
 									<Button
 										variant='outline'
 										type='button'
-										className='w-full'
+										className='w-full cursor-pointer'
 										disabled={pending}
+										onClick={() => {
+											authClient.signIn.social({
+												provider: "google",
+											});
+										}}
 									>
-										Google
+										<FaGoogle />
 									</Button>
 									<Button
 										variant='outline'
 										type='button'
-										className='w-full'
+										className='w-full cursor-pointer'
 										disabled={pending}
+										onClick={() => {
+											authClient.signIn.social({
+												provider: "github",
+											});
+										}}
 									>
-										Github
+										<FaGithub />
 									</Button>
 								</div>
 								<div className='text-center text-sm'>

@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const formSchema = z
 	.object({
@@ -181,18 +182,28 @@ const SignUpView = () => {
 									<Button
 										variant='outline'
 										type='button'
-										className='w-full'
+										className='w-full cursor-pointer'
 										disabled={pending}
+										onClick={() => {
+											authClient.signIn.social({
+												provider: "google",
+											});
+										}}
 									>
-										Google
+										<FaGoogle />
 									</Button>
 									<Button
 										variant='outline'
 										type='button'
-										className='w-full'
+										className='w-full cursor-pointer'
 										disabled={pending}
+										onClick={() => {
+											authClient.signIn.social({
+												provider: "github",
+											});
+										}}
 									>
-										Github
+										<FaGithub />
 									</Button>
 								</div>
 								<div className='text-center text-sm'>
