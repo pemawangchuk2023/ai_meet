@@ -53,6 +53,7 @@ const SignInView = () => {
 				},
 				onError: ({ error }) => {
 					setError(error.message);
+					setPending(false);
 				},
 			}
 		);
@@ -117,7 +118,11 @@ const SignInView = () => {
 										<AlertTitle>{error}</AlertTitle>
 									</Alert>
 								)}
-								<Button type='submit' className='w-full' disabled={pending}>
+								<Button
+									type='submit'
+									className='w-full cursor-pointer'
+									disabled={pending}
+								>
 									Sign In
 								</Button>
 								<div
@@ -169,7 +174,7 @@ const SignInView = () => {
 							</div>
 						</form>
 					</Form>
-					<div className='bg-radial from-green-500 to-green-900 relative hidden md:flex flex-col gap-y-4 items-center justify-center'>
+					<div className='bg-radial from-sidebar-accent to-sidebar relative hidden md:flex flex-col gap-y-4 items-center justify-center'>
 						<Image src='/assets/logo.svg' alt='logo' width={92} height={92} />
 						<p className='text-xl font-semibold text-white'>Meet AI</p>
 					</div>

@@ -23,6 +23,7 @@ const HomeView = () => {
 						},
 					})
 				}
+				className='cursor-pointer'
 			>
 				Sign Out
 			</Button>
